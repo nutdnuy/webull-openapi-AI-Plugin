@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webull Orders"
+  short_description: "Preview and safely gate Webull order operations"
+  default_prompt: "Preview a Webull order or handle a specifically confirmed order operation"

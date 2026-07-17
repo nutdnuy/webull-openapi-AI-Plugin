@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webull Watchlists"
+  short_description: "Read or explicitly confirm Webull watchlist changes"
+  default_prompt: "Inspect a Webull watchlist or prepare a confirmed watchlist update"

@@ -1,0 +1,16 @@
+{
+  "name": "webull-openapi",
+  "owner": {"name": "nutdnuy"},
+  "metadata": {
+    "description": "Codex skills for the Webull Thailand OpenAPI.",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "webull-openapi",
+      "source": "./",
+      "description": "Catalog-driven Webull authentication, research data, account reads, guarded writes, and event guidance.",
+      "version": "0.2.0"
+    }
+  ]
+}

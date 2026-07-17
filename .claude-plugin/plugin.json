@@ -1,0 +1,16 @@
+{
+  "name": "webull-openapi",
+  "version": "0.2.0",
+  "description": "Public Claude Code skills for the Webull Thailand OpenAPI, covering authentication, market data, accounts, watchlists, orders, and events.",
+  "author": {"name": "nutdnuy"},
+  "license": "MIT",
+  "keywords": ["webull", "openapi", "market-data", "trading", "research"],
+  "skills": [
+    "./skills/webull-auth",
+    "./skills/webull-market-data",
+    "./skills/webull-account",
+    "./skills/webull-watchlists",
+    "./skills/webull-orders",
+    "./skills/webull-events"
+  ]
+}

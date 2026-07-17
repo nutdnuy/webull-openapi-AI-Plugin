@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webull Streaming Events"
+  short_description: "Explain Webull MQTT and gRPC event subscriptions"
+  default_prompt: "Explain a Webull real-time event subscription without pretending the HTTP CLI is persistent"

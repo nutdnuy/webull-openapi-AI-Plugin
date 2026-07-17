@@ -1,0 +1,19 @@
+{
+  "name": "webull-openapi",
+  "version": "0.2.0",
+  "description": "Public Codex skills for the Webull Thailand OpenAPI, with catalog-driven requests and explicit write safety gates.",
+  "author": {"name": "nutdnuy"},
+  "license": "MIT",
+  "keywords": ["webull", "openapi", "market-data", "trading", "research"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Webull OpenAPI",
+    "shortDescription": "Use Webull Thailand OpenAPI safely.",
+    "longDescription": "Six focused skills cover Webull authentication, read-only data, account reads, guarded watchlist and order writes, and streaming-event documentation.",
+    "developerName": "nutdnuy",
+    "category": "Data & Analytics",
+    "capabilities": ["Read", "Write with confirmation"],
+    "defaultPrompt": ["Get a Webull market snapshot for AAPL.", "Preview a Webull order without placing it."],
+    "brandColor": "#1E88E5"
+  }
+}

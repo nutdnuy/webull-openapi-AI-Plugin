@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webull Account Reads"
+  short_description: "Read Webull accounts, balances, and positions"
+  default_prompt: "Read an authorized Webull account or portfolio state without making changes"

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webull Authentication"
+  short_description: "Create and manage Webull API signatures and access tokens"
+  default_prompt: "Create a Webull API token or troubleshoot authentication safely"

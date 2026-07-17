@@ -1,0 +1,4 @@
+interface:
+  display_name: "Webull Market Data"
+  short_description: "Read Webull prices, bars, instruments, and screeners"
+  default_prompt: "Get read-only Webull market data for a symbol and report the observed response safely"

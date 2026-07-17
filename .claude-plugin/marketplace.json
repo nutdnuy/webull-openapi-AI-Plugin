@@ -1,0 +1,16 @@
+{
+  "name": "webull-openapi",
+  "owner": {"name": "nutdnuy"},
+  "metadata": {
+    "description": "Claude Code skills for the Webull Thailand OpenAPI.",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "webull-openapi",
+      "source": "./",
+      "description": "Authentication, market data, account reads, guarded watchlists/orders, and streaming-event guidance.",
+      "version": "0.2.0"
+    }
+  ]
+}

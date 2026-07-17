@@ -7,6 +7,10 @@ description: Preview, inspect, place, replace, and cancel Webull Thailand stock 
 
 Read the exact endpoint entry in `references/endpoints.json`, follow its `schema_ref` into `references/openapi.json`, and read authentication rules in `references/authentication.md` before building any request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) and current trading documentation.
 
+## First-use onboarding
+
+Before any order-related request, check for `WEBULL_APP_KEY` and `WEBULL_APP_SECRET` in the secure environment. If the API Key is missing, ask the user to configure it securely and stop; never request credentials in chat. Require an active `WEBULL_ACCESS_TOKEN` before preview or any order operation.
+
 ## Supported endpoints
 
 - `POST /openapi/trade/order/preview` — preview only; gate with `PREVIEW`.

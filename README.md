@@ -17,6 +17,8 @@ Public Claude Code and Codex plugin packaging for the Webull Thailand OpenAPI. T
 
 Install this repository as a Claude Code or Codex plugin using the platform’s local/GitHub plugin workflow. For the Python CLI, install the wheel with `python -m pip install .`; this provides the `webull-api` console command. Configure secrets through a local secret manager or ignored environment file; never commit credentials. Use UAT first and select production only deliberately.
 
+On first use, the selected skill checks for `WEBULL_APP_KEY` and `WEBULL_APP_SECRET`. If the API Key is missing, it asks the user to configure it securely and stops before any network request. Never paste the App Secret or access token into chat.
+
 Every request must read the relevant catalog entry and follow its `schema_ref` into `references/openapi.json` first. The checked-in examples below are schema-derived placeholders, not credentials:
 
 ```bash

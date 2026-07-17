@@ -7,6 +7,10 @@ description: Create, check, and safely troubleshoot Webull Thailand OpenAPI acce
 
 Read `references/authentication.md`, the matching `references/endpoints.json` entry, and its `schema_ref` in `references/openapi.json` before constructing any request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) for current details.
 
+## First-use onboarding
+
+Before the first API request, check whether `WEBULL_APP_KEY` and `WEBULL_APP_SECRET` are available through the configured environment or secret manager. If `WEBULL_APP_KEY` is missing, stop and ask the user to configure the Webull API Key securely before continuing. Never ask the user to paste the App Secret or access token into chat.
+
 ## Supported endpoints
 
 - `POST /openapi/auth/token/create` — [official reference index](https://developer.webull.co.th/apis/docs/webull-open-api-reference). Treat token creation as a sensitive write-like operation: require explicit `TOKEN_WRITE` confirmation immediately before calling it.

@@ -186,7 +186,10 @@ class WebullClient:
         nonce_factory: Callable[[], str] | None = None,
     ) -> None:
         if not app_key or not app_secret:
-            raise ValueError("WEBULL_APP_KEY and WEBULL_APP_SECRET are required")
+            raise ValueError(
+                "first-use setup required: configure WEBULL_APP_KEY and "
+                "WEBULL_APP_SECRET in a secure environment before calling Webull"
+            )
         validate_host(host)
         self.app_key = app_key
         self.app_secret = app_secret

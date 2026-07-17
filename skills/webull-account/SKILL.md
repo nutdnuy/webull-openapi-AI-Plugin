@@ -7,6 +7,10 @@ description: Read Webull Thailand account lists, asset balances, and positions f
 
 Read the matching `references/endpoints.json` entry, follow its `schema_ref` into `references/openapi.json`, and read `references/authentication.md` before constructing each request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) as the source.
 
+## First-use onboarding
+
+Before the first account request, check the secure environment for `WEBULL_APP_KEY` and `WEBULL_APP_SECRET`. If the API Key is missing, ask the user to configure it through a secret manager or local environment and stop. Never request or echo secrets in chat.
+
 ## Supported endpoints
 
 - `GET /openapi/account/list` — list authorized accounts; [official reference index](https://developer.webull.co.th/apis/docs/webull-open-api-reference).

@@ -7,6 +7,10 @@ description: Explain and plan Webull Thailand real-time market-data MQTT subscri
 
 Read `references/endpoints.json`, follow each HTTP control entry's `schema_ref` into `references/openapi.json`, and read `references/authentication.md` for request shapes and credentials. Consult the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference), [Market Data API FAQ](https://developer.webull.co.th/apis/docs/market-data-api/faq/), and [Trading API Getting Started](https://developer.webull.co.th/apis/docs/trade-api/getting-started/).
 
+## First-use onboarding
+
+Before explaining or starting a streaming workflow, check for `WEBULL_APP_KEY` and `WEBULL_APP_SECRET` in the secure environment. If the API Key is missing, ask the user to configure it securely and stop. Never request or echo secrets in chat.
+
 ## Supported streaming interfaces
 
 - `POST /openapi/market-data/streaming/subscribe` — MQTT market-data subscription operation; [official reference index](https://developer.webull.co.th/apis/docs/webull-open-api-reference).

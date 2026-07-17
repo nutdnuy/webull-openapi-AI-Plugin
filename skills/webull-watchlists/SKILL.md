@@ -7,6 +7,10 @@ description: Read and manage Webull Thailand watchlists and their instruments. U
 
 Read the relevant object in `references/endpoints.json`, follow its `schema_ref` into `references/openapi.json`, and read `references/authentication.md` before building parameters or JSON. Consult the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference).
 
+## First-use onboarding
+
+Before the first watchlist request, check for `WEBULL_APP_KEY` and `WEBULL_APP_SECRET` in the secure environment. If the API Key is missing, ask the user to configure it securely and stop. Never ask the user to paste the App Secret or access token into chat.
+
 ## Supported endpoints
 
 - `GET /openapi/market-data/watchlist/list` — read-only list.

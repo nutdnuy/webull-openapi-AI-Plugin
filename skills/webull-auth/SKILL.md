@@ -5,7 +5,7 @@ description: Create, check, and safely troubleshoot Webull Thailand OpenAPI acce
 
 # Webull authentication
 
-Read `references/authentication.md` and the matching entries in `references/endpoints.json` before constructing any request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) for current details.
+Read `references/authentication.md`, the matching `references/endpoints.json` entry, and its `schema_ref` in `references/openapi.json` before constructing any request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) for current details.
 
 ## Supported endpoints
 

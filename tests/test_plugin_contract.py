@@ -16,6 +16,7 @@ def test_required_plugin_surface_exists() -> None:
     assert (ROOT / ".codex-plugin/plugin.json").is_file()
     assert (ROOT / "scripts/webull_api.py").is_file()
     assert (ROOT / "references/endpoints.json").is_file()
+    assert (ROOT / "references/openapi.json").is_file()
     assert (ROOT / "references/authentication.md").is_file()
 
 
@@ -54,6 +55,60 @@ def test_endpoint_catalog_and_auth_reference_contract() -> None:
     assert by_key[("POST", "/openapi/auth/token/create")]["confirmation"] == "TOKEN_WRITE"
     assert by_key[("POST", "/openapi/market-data/streaming/subscribe")]["confirmation"] == "STREAMING"
     assert (ROOT / "references/authentication.md").read_text(encoding="utf-8").strip()
+
+
+def test_consolidated_openapi_covers_catalog_http_entries() -> None:
+    catalog = json.loads((ROOT / "references/endpoints.json").read_text(encoding="utf-8"))
+    document = json.loads((ROOT / "references/openapi.json").read_text(encoding="utf-8"))
+    assert document["openapi"].startswith("3.")
+    assert document["info"]["version"] == "2.0"
+    assert document["info"]["description"].startswith("Consolidated HTTP endpoint schemas")
+    assert document["servers"]
+    assert (
+        "https://developer.webull.co.th/apis/docs/webull-open-api-reference"
+        in document["info"]["description"]
+    )
+
+    http_entries = [entry for entry in catalog["entries"] if entry["transport"] == "http"]
+    catalog_keys = {(entry["method"].lower(), entry["path"]) for entry in http_entries}
+    openapi_keys = {
+        (method, path)
+        for path, path_item in document["paths"].items()
+        for method in path_item
+        if not method.startswith("x-")
+    }
+    assert len(http_entries) == len(catalog_keys) == len(openapi_keys) == 34
+    assert openapi_keys == catalog_keys
+
+    for entry in http_entries:
+        method = entry["method"].lower()
+        path = entry["path"]
+        operation = document["paths"][path][method]
+        assert entry["schema_ref"] == f"openapi.json#/paths/{path.replace('/', '~1')}/{method}"
+        assert operation["operationId"]
+        assert "parameters" in operation
+        assert "responses" in operation and operation["responses"]
+        source = operation["x-webull-source"]
+        assert operation["parameters"] == source["parameters"]
+        assert operation["responses"] == source["responses"]
+        assert ("requestBody" in source) == ("requestBody" in operation)
+        if "requestBody" in source:
+            assert (
+                operation["requestBody"]["content"]["application/json"]["schema"]
+                == source["requestBody"]["content"]["application/json"]["schema"]
+            )
+            assert (
+                operation["requestBody"]["content"]["application/json"]["example"]
+                == source["jsonRequestBodyExample"]
+            )
+
+    serialized = json.dumps(document, ensure_ascii=False)
+    assert "/tmp/" not in serialized
+    assert re.search(
+        r"-----BEGIN .*PRIVATE KEY-----|\bsk-[a-z0-9]{16,}\b|\bAKIA[0-9A-Z]{16}\b",
+        serialized,
+        flags=re.IGNORECASE,
+    ) is None
 
 
 def test_python_package_contract() -> None:

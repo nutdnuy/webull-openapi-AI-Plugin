@@ -5,7 +5,7 @@ description: Preview, inspect, place, replace, and cancel Webull Thailand stock 
 
 # Webull orders
 
-Read the exact endpoint entries in `references/endpoints.json` and authentication rules in `references/authentication.md` before building any request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) and current trading documentation.
+Read the exact endpoint entry in `references/endpoints.json`, follow its `schema_ref` into `references/openapi.json`, and read authentication rules in `references/authentication.md` before building any request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) and current trading documentation.
 
 ## Supported endpoints
 

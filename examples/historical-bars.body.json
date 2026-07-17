@@ -1,0 +1,8 @@
+{
+  "symbols": ["<SYMBOL>"],
+  "category": "US_STOCK",
+  "timespan": "D",
+  "count": 100,
+  "real_time_required": false,
+  "trading_sessions": "RTH"
+}

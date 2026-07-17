@@ -5,7 +5,7 @@ description: Read and manage Webull Thailand watchlists and their instruments. U
 
 # Webull watchlists
 
-Read the relevant objects in `references/endpoints.json` and `references/authentication.md` before building parameters or JSON. Consult the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference).
+Read the relevant object in `references/endpoints.json`, follow its `schema_ref` into `references/openapi.json`, and read `references/authentication.md` before building parameters or JSON. Consult the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference).
 
 ## Supported endpoints
 

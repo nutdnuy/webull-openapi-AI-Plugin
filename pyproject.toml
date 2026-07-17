@@ -17,7 +17,7 @@ dependencies = [
 include = ["scripts*", "references*"]
 
 [tool.setuptools.package-data]
-references = ["endpoints.json", "authentication.md"]
+references = ["endpoints.json", "openapi.json", "authentication.md"]
 
 [tool.setuptools.exclude-package-data]
 "*" = ["__pycache__/*", "*.pyc"]

@@ -1,6 +1,6 @@
 # Webull OpenAPI skills
 
-Public Claude Code and Codex plugin packaging for the Webull Thailand OpenAPI. The six skills cover authentication, read-only market and account data, guarded watchlist and order operations, and documentation for MQTT/gRPC events. A shared runtime is expected at `scripts/webull_api.py`; the endpoint catalog and authentication reference are expected at `references/endpoints.json` and `references/authentication.md`.
+Public Claude Code and Codex plugin packaging for the Webull Thailand OpenAPI. The six skills cover authentication, read-only market and account data, guarded watchlist and order operations, and documentation for MQTT/gRPC events. The repo bundles complete request/response schemas for all 34 HTTP endpoints in [`references/openapi.json`](references/openapi.json); MQTT and gRPC remain catalog-only transport entries. The endpoint catalog and authentication reference are in `references/endpoints.json` and `references/authentication.md`.
 
 ## Skill map
 
@@ -17,13 +17,15 @@ Public Claude Code and Codex plugin packaging for the Webull Thailand OpenAPI. T
 
 Install this repository as a Claude Code or Codex plugin using the platform’s local/GitHub plugin workflow. For the Python CLI, install the wheel with `python -m pip install .`; this provides the `webull-api` console command. Configure secrets through a local secret manager or ignored environment file; never commit credentials. Use UAT first and select production only deliberately.
 
-Every request must read the relevant catalog entry first:
+Every request must read the relevant catalog entry and follow its `schema_ref` into `references/openapi.json` first. The checked-in examples below are schema-derived placeholders, not credentials:
 
 ```bash
-python scripts/webull_api.py request --method GET --path /openapi/market-data/stock/snapshot --query-json '{"symbol":"<SYMBOL>","market":"<MARKET>"}'
+python scripts/webull_api.py request --method GET --path /openapi/market-data/stock/snapshot --query-json "$(cat examples/stock-snapshot.query.json)"
 python scripts/webull_api.py request --method GET --path /openapi/account/list
-python scripts/webull_api.py request --method POST --path /openapi/trade/order/preview --body-file ./request.json
+python scripts/webull_api.py request --method POST --path /openapi/market-data/stock/batch-bars --body-file examples/historical-bars.body.json
 ```
+
+The GET placeholder is [`examples/stock-snapshot.query.json`](examples/stock-snapshot.query.json) and the POST placeholder is [`examples/historical-bars.body.json`](examples/historical-bars.body.json). Replace only documented values after checking the endpoint schema; keep credentials in the environment.
 
 The exact flags and schema are defined by the shared runtime/catalog contract; placeholders above are not credentials or complete production payloads. Use `--body-stdin` when the JSON must never appear in shell history, and set `WEBULL_ACCESS_TOKEN` in the environment rather than passing a token argument. Output is redacted by default; use `--show-secrets` only for an explicitly authorized diagnostic, noting that app secrets and signature/authorization fields remain redacted.
 

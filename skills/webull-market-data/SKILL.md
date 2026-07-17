@@ -5,7 +5,7 @@ description: Retrieve read-only Webull Thailand market, instrument, analyst, and
 
 # Webull market data
 
-Read the relevant endpoint objects in `references/endpoints.json` before every request and use `references/authentication.md` for headers/signatures. Consult the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) for endpoint documentation and permissions.
+Read the relevant endpoint object in `references/endpoints.json`, follow its `schema_ref` into `references/openapi.json`, and use `references/authentication.md` for headers/signatures before every request. Consult the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) for endpoint documentation and permissions.
 
 ## Supported read-only endpoints
 

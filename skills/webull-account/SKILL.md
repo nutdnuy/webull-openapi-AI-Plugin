@@ -5,7 +5,7 @@ description: Read Webull Thailand account lists, asset balances, and positions f
 
 # Webull account reads
 
-Read `references/endpoints.json` and `references/authentication.md` before constructing each request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) as the documentation source.
+Read the matching `references/endpoints.json` entry, follow its `schema_ref` into `references/openapi.json`, and read `references/authentication.md` before constructing each request. Use the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference) as the source.
 
 ## Supported endpoints
 

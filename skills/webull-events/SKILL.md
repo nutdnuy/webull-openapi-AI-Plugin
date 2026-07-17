@@ -5,7 +5,7 @@ description: Explain and plan Webull Thailand real-time market-data MQTT subscri
 
 # Webull events and streaming
 
-Read `references/endpoints.json` and `references/authentication.md` for the documented request shapes and credentials. Consult the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference), [Market Data API FAQ](https://developer.webull.co.th/apis/docs/market-data-api/faq/), and [Trading API Getting Started](https://developer.webull.co.th/apis/docs/trade-api/getting-started/).
+Read `references/endpoints.json`, follow each HTTP control entry's `schema_ref` into `references/openapi.json`, and read `references/authentication.md` for request shapes and credentials. Consult the official [Webull Open API reference](https://developer.webull.co.th/apis/docs/webull-open-api-reference), [Market Data API FAQ](https://developer.webull.co.th/apis/docs/market-data-api/faq/), and [Trading API Getting Started](https://developer.webull.co.th/apis/docs/trade-api/getting-started/).
 
 ## Supported streaming interfaces
 
